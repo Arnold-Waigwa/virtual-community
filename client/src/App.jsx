@@ -8,7 +8,9 @@ const App = () => {
         const response = await fetch("/venues");
         const data = await response.text();
         setMessage(data);
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     })();
   }, []);
   return <h1>{message}</h1>;
