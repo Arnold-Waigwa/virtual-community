@@ -8,7 +8,8 @@ router.get("/", async (req, res) => {
     const result = await pool.query(`SELECT * FROM venues`);
     res.send(result.rows);
   } catch (error) {
-    res.status(500).send({ error: error });
+    console.log("error fetching venues", error);
+    res.status(500).send({ error: "Internal server error" });
   }
 });
 
@@ -21,7 +22,8 @@ router.get("/:id", async (req, res) => {
       return res.status(404).send("Venue not found");
     res.send(result.rows[0]);
   } catch (error) {
-    res.status(500).send({ error: error });
+    console.log("error fetching venue", error);
+    res.status(500).send({ error: "Internal server error" });
   }
 });
 
