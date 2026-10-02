@@ -9,6 +9,9 @@ export default defineConfig({
       "/venues": {
         target: "http://localhost:3000",
       },
+      "/events": {
+        target: "http://localhost:3000",
+      },
     },
   },
 });

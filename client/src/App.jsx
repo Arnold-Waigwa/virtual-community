@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const App = () => {
   const [venues, setVenues] = useState([]);
@@ -17,7 +18,12 @@ const App = () => {
     <>
       <ul>
         {venues.map((venue) => (
-          <li id={venue.id}>{venue.name}</li>
+          <li key={venue.id}>
+            <div>
+              <h3>{venue.name}</h3>
+              <Link to={`/_venues/${venue.id}`}>more...</Link>
+            </div>
+          </li>
         ))}
       </ul>
     </>
