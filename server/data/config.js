@@ -1,4 +1,8 @@
+import dotenv from "dotenv";
+import { fileURLToPath } from "node:url";
 import pg from "pg";
+
+dotenv.config({ path: fileURLToPath(new URL("../../.env", import.meta.url)) });
 
 const config = {
   user: process.env.PGUSER,
@@ -6,9 +10,7 @@ const config = {
   host: process.env.PGHOST,
   port: process.env.PGPORT,
   database: process.env.PGDATABASE,
-  ssl: {
-    rejectUnauthorized: false,
-  },
+  ssl: process.env.PGSSL === "true" ? { rejectUnauthorized: false } : false,
 };
 
-export default pool = new pg.Pool(config);
+export default new pg.Pool(config);
