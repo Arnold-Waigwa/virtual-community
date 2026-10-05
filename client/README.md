@@ -1,16 +1,20 @@
-# React + Vite
+# City Events
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React app for browsing local events. The home page lists cities and lets you search by location. Clicking a city shows events from its venues.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Install dependencies with `npm install` in both `client` and `server`.
 
-## React Compiler
+Start the API with `npm start` in `server`, then start the frontend with `npm run dev` in `client`. The API uses the PostgreSQL connection configured in `server/data/config.js`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Vite forwards `/venues` and `/events` requests to the API on port 3000.
 
-## Expanding the ESLint configuration
+## Checks
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+From `client`, run:
+
+- `npm run lint` to check the code.
+- `npm run build` to create a production build.
+
+Photo sources are listed in [public/images/README.md](public/images/README.md).
