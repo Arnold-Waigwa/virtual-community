@@ -7,6 +7,7 @@ export function Header() {
         <Link className="site-name" to="/">City Events</Link>
         <nav aria-label="Main navigation">
           <Link to="/">Home</Link>
+          <Link to="/all-events">All Events</Link>
         </nav>
       </div>
     </header>

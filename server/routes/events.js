@@ -5,10 +5,20 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
   try {
-    const result = await pool.query(
-      `SELECT * FROM events where venue_id = $1`,
-      [req.query.venue],
-    );
+    let query = `
+      SELECT events.*, venues.name AS venue_name, venues.location
+      FROM events
+      JOIN venues ON events.venue_id = venues.id
+    `;
+    const values = [];
+
+    if (req.query.venue) {
+      query += " WHERE events.venue_id = $1";
+      values.push(req.query.venue);
+    }
+
+    query += " ORDER BY events.date";
+    const result = await pool.query(query, values);
     res.send(result.rows);
   } catch (error) {
     console.log("error fetching event");

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import EventCard from "../components/EventCard.jsx";
 import { Header } from "../components/Header.jsx";
 
 export default function CityEvents() {
@@ -29,7 +30,7 @@ export default function CityEvents() {
           const venueEvents = await eventsResponse.json();
 
           for (const event of venueEvents) {
-            cityEvents.push({ ...event, venueName: venue.name });
+            cityEvents.push({ ...event, venue_name: venue.name });
           }
         }
 
@@ -69,31 +70,7 @@ export default function CityEvents() {
 
         <div className="event-list">
           {events.map((event) => (
-            <article className="event-card" key={event.id}>
-              <img
-                className="event-image"
-                src={event.image || "/images/riverfront.jpg"}
-                alt=""
-                loading="lazy"
-                onError={(e) => {
-                  e.currentTarget.onerror = null;
-                  e.currentTarget.src = "/images/riverfront.jpg";
-                }}
-              />
-              <div className="event-details">
-                <h2>{event.name}</h2>
-                <p>{event.venueName}</p>
-                <p className="event-date">
-                  {new Date(event.date).toLocaleString([], {
-                    month: "short",
-                    day: "numeric",
-                    year: "numeric",
-                    hour: "numeric",
-                    minute: "2-digit",
-                  })}
-                </p>
-              </div>
-            </article>
+            <EventCard event={event} key={event.id} />
           ))}
         </div>
       </main>

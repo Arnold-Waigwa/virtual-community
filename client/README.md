@@ -1,6 +1,6 @@
 # City Events
 
-A simple React app for browsing local events. The home page lists cities and lets you search by location. Clicking a city shows events from its venues.
+A simple React app for browsing local events. The home page lists cities and lets you search by location. Clicking a city shows events from its venues. The All Events page lists events from every city and lets you search by location.
 
 ## Run locally
 
@@ -18,3 +18,5 @@ From `client`, run:
 - `npm run build` to create a production build.
 
 Photo sources are listed in [public/images/README.md](public/images/README.md).
+
+The API returns all events at `/events`. Add `?venue=1` to filter by venue. Event responses include the venue name and location.

@@ -234,3 +234,23 @@ p {
     transition: none;
   }
 }
+
+.header nav {
+  display: flex;
+  gap: 20px;
+}
+
+@media (max-width: 450px) {
+  .header-content {
+    padding: 18px;
+  }
+
+  .site-name {
+    font-size: 20px;
+  }
+
+  .header nav {
+    gap: 12px;
+    font-size: 14px;
+  }
+}
