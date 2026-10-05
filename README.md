@@ -37,7 +37,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='demo/Kapture 2026-10-05 at 14.45.36.gif' />
 
 <!-- Replace this with whatever GIF tool you used! -->
 
